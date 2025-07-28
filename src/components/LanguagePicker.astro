@@ -1,0 +1,30 @@
+---
+const { currentLocale, defaultLocale, locales, translations = {}, section } = Astro.props;
+
+const fullPath = Astro.url.pathname;           
+const unprefixedPath = currentLocale === defaultLocale
+  ? fullPath
+  : fullPath.replace(/^\/fr/, '');    
+---
+<style>
+  .lang-picker { display:flex; gap:.5em; margin-left:1.5em; font-family: var(--font-family-sans); }
+  .lang-picker a { opacity:.7; text-decoration:none; }
+  .lang-picker a.active { opacity:1; border-bottom:2px solid var(--accent); }
+  .lang-picker a.disabled { pointer-events: none; opacity: 0.3; }
+</style>
+
+<nav class="lang-picker">
+  {locales.map((lang) => {
+    let href = translations[lang];
+    if (!href) {
+      if (section) {
+        href = lang === defaultLocale ? `/${section}` : `/${lang}/${section}`;
+      } else {
+        href = lang === defaultLocale ? '/' : `/${lang}`;
+      }
+    }
+    const cls = lang === currentLocale ? 'active' : '';
+    return <a href={href} class={cls}>{lang.toUpperCase()}</a>;
+  })}
+</nav>
+

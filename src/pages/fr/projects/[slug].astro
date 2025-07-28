@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content';
+import readingTime from 'reading-time';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, defaultLocale } from '../../../config/i18n.js';
+
+export async function getStaticPaths() {
+  const items = await getCollection('projects');
+  return items.filter(p => p.data.lang === 'fr').map(p => ({
+    params: { slug: p.data.slug },
+    props: { post: p },
+  }));
+}
+
+const { post } = Astro.props;
+const { title, slug, description, publishDate, repo, tools, translationSlug, lang } = post.data;
+const allProjects = await getCollection('projects');
+// Build a translations object: { en: '/projects/slug', fr: '/fr/projects/slug' }
+const translations = {};
+for (const locale of locales) {
+  if (locale === lang) {
+    translations[locale] = locale === defaultLocale ? `/projects/${slug}` : `/${locale}/projects/${slug}`;
+  } else {
+    const translated = allProjects.find(p => p.data.lang === locale && p.data.slug === translationSlug);
+    if (translated) {
+      translations[locale] = locale === defaultLocale ? `/projects/${translated.data.slug}` : `/${locale}/projects/${translated.data.slug}`;
+    }
+  }
+}
+const isFR = lang === 'fr';
+const otherURL = translations[isFR ? 'en' : 'fr'] || null;
+const readingTimeEstimate = readingTime(post.body).text;
+const permalink = `${Astro.site.href}fr/projects/${slug}`;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="projects" translationUrl={otherURL} translations={translations}>
+  <header>
+    <p>{publishDate} — {readingTimeEstimate}</p>
+    <h1>{title}</h1>
+    {repo && <p><a href={repo} target="_blank">Voir le repo GitHub</a></p>}
+    {tools && <p>Outils : {tools.join(', ')}</p>}
+    <hr />
+  </header>
+  <div class="container">
+    <article class="content"><Content /></article>
+  </div>
+</BaseLayout>

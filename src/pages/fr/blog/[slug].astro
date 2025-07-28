@@ -1,14 +1,14 @@
 ---
 import { getCollection, render } from 'astro:content'
 import readingTime from 'reading-time'
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Bio from '../../components/Bio.astro';
-import { locales, defaultLocale } from '../../config/i18n.js';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Bio from '../../../components/Bio_fr.astro';
+import { locales, defaultLocale } from '../../../config/i18n.js';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('posts')
-  const englishPosts = posts.filter(p => p.data.lang === 'en');
-  return englishPosts.map(p => ({
+  const frenchPosts = posts.filter(p => p.data.lang === 'fr');
+  return frenchPosts.map(p => ({
     params: { slug: p.data.slug },
     props: { post: p },
   }));
@@ -34,7 +34,7 @@ for (const locale of locales) {
 const isFR = post.data.lang === 'fr';
 const otherURL = translations[isFR ? 'en' : 'fr'] || null;
 const readingTimeEstimate = readingTime(post.body).text
-const permalink = `${Astro.site.href}blog/${slug}`;
+const permalink = `${Astro.site.href}fr/blog/${slug}`;
 
 const { Content } = await render(post)
 ---

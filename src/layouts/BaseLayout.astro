@@ -2,23 +2,42 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import LanguagePicker from '../components/LanguagePicker.astro';
+import { locales, defaultLocale } from '../config/i18n.js';
+
+// 1) Récupère le chemin actuel
+const pathname = new globalThis.URL(Astro.request.url).pathname;  
+// 2) Détermine si on est en FR ou EN
+const currentLocale = pathname.startsWith('/fr') ? 'fr' : 'en';  
+// 3) Liste des langues et langue par défaut
+// const locales = ['en', 'fr'];  
+// const defaultLocale = 'en';  
 
 export interface Props {
   title: string;
   description: string;
   permalink: string;
   current?: string;
+  translationUrl?: string;
+  translations?: { [key: string]: string };
+  section?: string;
 }
-const { title, description, permalink, current } = Astro.props;
+const { title, description, permalink, current, translationUrl, translations, section } = Astro.props;
 ---
-<html lang="en">
+<html lang={currentLocale}>
 <head>
   <BaseHead title={title} description={description} permalink={permalink} />
 </head>
 <body>
   <div class="layout">
-    <Header current={current} />
-
+    <Header current={current}
+      currentLocale={currentLocale}
+      defaultLocale={defaultLocale}
+      locales={locales} 
+      translationUrl={translationUrl}
+      translations={translations}
+      section={section}
+    />
     <main>
       <slot />
     </main>

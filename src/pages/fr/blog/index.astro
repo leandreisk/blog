@@ -1,17 +1,16 @@
 ---
 import { getCollection } from 'astro:content'
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const title = 'Blog';
 const description = 'Latest articles.';
-const permalink = `${Astro.site.href}blog`;
-
-
+const permalink = `${Astro.site.href}fr/blog`;
 
 let allPosts = await getCollection('posts')
 
+
 allPosts = allPosts
-  .filter(post => post.data.lang === 'en')
+  .filter(post => post.data.lang === 'fr')
   .sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
 ---
 
@@ -19,7 +18,7 @@ allPosts = allPosts
   <div class="container">
     <h1>Blog</h1>
     {allPosts.map((post, index) => {
-      const href = `/blog/${post.data.slug}`;
+      const href = `/fr/blog/${post.data.slug}`;
       return (
         <div>
           { index !== 0 && <hr /> }

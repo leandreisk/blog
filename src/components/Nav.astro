@@ -1,6 +1,13 @@
 ---
 import ThemeToggleButton from './ThemeToggleButton.svelte';
-const { current = '' } = Astro.props;
+const { current = '', currentLocale } = Astro.props;
+const prefix = currentLocale === 'fr' ? '/fr' : '';
+const labels = {
+  home:  { en: 'Home',       fr: 'Accueil'    },
+  about: { en: 'About',      fr: 'À propos'   },
+  blog:  { en: 'Blog',       fr: 'Blog'       },
+  test:  { en: 'Test',       fr: 'Test'       },
+};
 ---
 
 <style>
@@ -63,10 +70,35 @@ const { current = '' } = Astro.props;
 </style>
 
 <nav>
-  <a class={current === "" ? "selected" : ""} href='/'>home</a>
-  <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
-  <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
+  <a
+    href={`${prefix}/`}
+    class={current === "" ? "selected" : ""}
+  >
+    {labels.home[currentLocale]}
+  </a>
+
+  <a
+    href={`${prefix}/about`}
+    class={current === "about" ? "selected" : ""}
+  >
+    {labels.about[currentLocale]}
+  </a>
+
+  <a
+    href={`${prefix}/blog`}
+    class={current === "blog" ? "selected" : ""}
+  >
+    {labels.blog[currentLocale]}
+  </a>
+
+  <a href={currentLocale === 'fr' ? '/fr/projects' : '/projects'}
+   class={current === 'projects' ? 'selected' : ''}>
+  {currentLocale==='fr' ? 'Projets' : 'Projects'}
+</a>
+
+
   <div class="theme-toggle-container">
     <ThemeToggleButton client:load />
   </div>
 </nav>
+

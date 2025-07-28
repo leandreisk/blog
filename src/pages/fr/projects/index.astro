@@ -1,0 +1,40 @@
+--- 
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+// Zizi
+// Titre et meta
+const title = 'Projets';
+const description = 'Mes projets de cours et de recherche';
+const permalink = `${Astro.site.href}projets`;
+
+// Charge tous les projets, filtre selon la langue active
+const allProjets = await getCollection('projects');
+const currentLocale = Astro.url.pathname.startsWith('/fr') ? 'fr' : 'en';
+let projets = allProjets.filter(p => p.data.lang === currentLocale);
+// Trie par date décroissante
+projets = projets.sort((a, b) =>
+  new Date(b.data.publishDate).valueOf() -
+  new Date(a.data.publishDate).valueOf()
+);
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="projects" section="projects">
+  <div class="container">
+    <h1>{title}</h1>
+    {projets.map((p, i) => {
+      const href = currentLocale === 'fr'
+        ? `/fr/projects/${p.data.slug}`
+        : `/projects/${p.data.slug}`;
+      return (
+        <div>
+          {i !== 0 && <hr />}
+          <div class="post-item">
+            <h2><a href={href}>{p.data.title}</a></h2>
+            <p>{p.data.description}</p>
+            <small>{p.data.publishDate}</small>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</BaseLayout>

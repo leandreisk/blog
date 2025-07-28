@@ -1,6 +1,8 @@
 ---
 import Logo from './Logo.astro'
 import Nav from './Nav.astro'
+import LanguagePicker from './LanguagePicker.astro';
+const { currentLocale, defaultLocale, locales, translationUrl, translations, section } = Astro.props;
 
 const { current = '' } = Astro.props;
 ---
@@ -8,6 +10,8 @@ const { current = '' } = Astro.props;
 <style>
   header {
     display: flex;
+    align-items: center;       /* <— centre le Logo, le Nav et le LanguagePicker sur la même ligne */
+    justify-content: space-between; /* <— optionnel : espace Logo à gauche, le reste à droite */
     margin: 0 auto;
     max-width: 1400px;
     padding: 2em;
@@ -19,9 +23,27 @@ const { current = '' } = Astro.props;
       padding: 2em 0;
     }
   }
+
+  .language-switch { display:flex; gap:.5em; margin-left:1.5em; font-family: var(--font-family-sans); text-decoration: none; }
+  .language-switch a { opacity:.7; text-decoration:none; }
+  .language-switch a.active { opacity:1; border-bottom:2px solid var(--accent); }
 </style>
 
 <header>
   <Logo />
-  <Nav current={current} />
+  <Nav current={current} currentLocale={currentLocale} />
+  {translationUrl ? (
+    <a href={translationUrl} class="language-switch">
+      {currentLocale === 'fr' ? 'EN' : 'FR'}
+    </a>
+  ) : (
+    <LanguagePicker
+      {currentLocale}
+      {defaultLocale}
+      {locales}
+      translations={translations}
+      section={section}
+    />
+  )}
 </header>
+
