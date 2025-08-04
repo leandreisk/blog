@@ -12,13 +12,12 @@ lang: 'en'
 
 ---
 
-![Illustration of woman using a meditation app](/assets/blog/casual-life-3d-meditation-crystal.webp)
 
 This is a test of a project
 
-Formule inline : $a^2 + b^2 = c^2$.
+Inline formula : $a^2 + b^2 = c^2$.
 
-Formule en bloc :
+Block formula :
 
 $$
 \int_{0}^{1} x^2 \, dx = \frac{1}{3}

@@ -11,7 +11,6 @@ repo: "https://github.com/"
 lang: 'fr'
 ---
 
-![Illustration of woman using a meditation app](/assets/blog/casual-life-3d-meditation-crystal.webp)
 
 Ceci est un test de projet
 
