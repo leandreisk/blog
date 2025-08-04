@@ -17,7 +17,8 @@ A personal blog and portfolio built with [Astro](https://astro.build/), based on
 ## Setup
 
 ```
-git clone https://github.com/your-username/your-blog-repo.git
+git clone https://github.com/leandreisk/LI-blog.git
 cd your-blog-repo
 npm install
-npm run dev```
+npm run dev
+```
