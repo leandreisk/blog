@@ -16,12 +16,12 @@ Je viens de terminer le cours d’**Art algorithmique** à l’Université de Mo
 
 Voici les quatre œuvres que j’ai réalisées dans le cadre du cours :
 
-## [Œuvre n°1 : Art génératif aléatoire avec formes géométriques simples](https://google.com)  
+## [Œuvre n°1 : Art génératif aléatoire avec formes géométriques simples](/assets/projects/ift6251/Artwork1/index.html)  
 Ce projet explorait le thème de l’aléatoire à travers des formes géométriques élémentaires. J’ai utilisé la bibliothèque `p5.js` pour expérimenter différentes fonctions graphiques, illustrant l’évolution du framerate et l’accélération des tracés. J’y ai également intégré `p5.sound.js` pour générer quelques notes musicales. Mon inspiration principale : la chaîne YouTube [Webdriver Torso](https://www.youtube.com/channel/UCsLiV4WJfkTEHH0b9PmRklw).
 
-## [Œuvre n°2 : Art génératif basé sur un algorithme spécifique](https://google.com)  
+## [Œuvre n°2 : Art génératif basé sur un algorithme spécifique](/assets/projects/ift6251/Artwork2/index.html)  
 Le sujet imposait l’utilisation d’un algorithme dédié : j’ai choisi les **Flow Fields**. J’ai cherché à combiner leur aspect visuel apaisant avec des effets sonores et graphiques volontairement glitchés ou bruités. Ma principale source d’inspiration : le morceau *On Sight* de Kanye West.
 
-## [Œuvre n°3 : Art génératif piloté par des données](https://google.com)  
+## [Œuvre n°3 : Art génératif piloté par des données](/assets/projects/ift6251/Artwork3/index.html)  
 Ce projet portait sur l’art fondé sur les données. J’ai utilisé un ensemble de mots simples (voir la section « Dataset ») pour modéliser des interactions entre individus. J’y ai également intégré la bibliothèque `p5.speech` afin d’ajouter une synthèse vocale (TTS).
 
