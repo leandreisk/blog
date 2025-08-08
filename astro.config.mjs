@@ -43,7 +43,7 @@ const isNetlify = process.env.NETLIFY === 'true';
 
 export default defineConfig({
   site: isNetlify
-    ? 'https://adorable-narwhal-12345.netlify.app'
+    ? 'https://leandre-iskin.netlify.app'
     : 'https://leandreisk.github.io/blog',
   base: isNetlify ? '/' : '/blog/',
   output: 'static',
