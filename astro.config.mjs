@@ -39,10 +39,14 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+const isNetlify = process.env.NETLIFY === 'true';
+
 export default defineConfig({
-  // site: 'https://leandreisk.github.io',
-  base: '/',
-  // output: 'static',
+  site: isNetlify
+    ? 'https://adorable-narwhal-12345.netlify.app'
+    : 'https://leandreisk.github.io/blog',
+  base: isNetlify ? '/' : '/blog/',
+  output: 'static',
   integrations: [mdx(), svelte()],
   markdown: {
     // On regroupe **UNE** seule fois** remarkPlugins
