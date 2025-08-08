@@ -41,7 +41,7 @@ import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
   // site: 'https://leandreisk.github.io',
-  // base: '/blog/',
+  base: '/',
   // output: 'static',
   integrations: [mdx(), svelte()],
   markdown: {
