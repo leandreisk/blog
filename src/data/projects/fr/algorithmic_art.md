@@ -25,3 +25,17 @@ Le sujet imposait l’utilisation d’un algorithme dédié : j’ai choisi les 
 ## <a href="/assets/projects/ift6251/Artwork3/index.html" target="_blank" rel="noopener">Œuvre n°3 : Œuvre conditionné par des données</a>
 Ce projet portait sur l’art fondé sur les données. J’ai utilisé un ensemble de mots simples (voir la section « Dataset ») pour modéliser des interactions entre individus. J’y ai également intégré la bibliothèque `p5.speech` afin d’ajouter une synthèse vocale (TTS).
 
+## <a href="/assets/projects/ift6251/Artwork4/index.html" target="_blank" rel="noopener">Œuvre n°4 : Présentée lors du vernissage – "Cadavre exquis"</a>
+
+Cette œuvre a été présentée lors du vernissage final du cours. Deux réalisations y figuraient, autour d’un thème libre. Pour chacune d’elles, je vous invite à les explorer et à en proposer votre propre interprétation.
+
+## <a href="/assets/projects/ift6251/Artwork5/index.html" target="_blank" rel="noopener">Œuvre n°5 : Présentée lors du vernissage – "Cadavre exquis"</a>
+
+Voici la seconde œuvre exposée lors du vernissage. Là encore, je vous invite à la découvrir librement.
+
+## <a href="/assets/projects/ift6251/exquis/exquisite-conductor.html" target="_blank" rel="noopener">Vernissage de fin de cours : "Cadavre exquis"</a>
+
+Le vernissage de fin de cours était une œuvre collaborative réunissant l’ensemble des élèves. Il s’inspirait du principe du [cadavre exquis](https://fr.wikipedia.org/wiki/Cadavre_exquis).  
+Chaque participant devait relier ses œuvres à travers quatre points situés sur les bords de sa fenêtre. L’installation finale a été diffusée sur plusieurs écrans, chacun correspondant à une fenêtre individuelle. Des photos du vernissage sont disponibles sur le dépôt GitHub du cours.
+
+Enfin, je tiens à remercier chaleureusement Benoit Baudry ainsi que tous les étudiants du cours pour avoir rendu cette aventure aussi enrichissante que joyeuse.
