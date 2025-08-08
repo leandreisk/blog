@@ -40,7 +40,9 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: 'https://astro-blog-template.netlify.app',
+  site: 'https://leandreisk.github.io',
+  base: '/blog/',
+  output: 'static',
   integrations: [mdx(), svelte()],
   markdown: {
     // On regroupe **UNE** seule fois** remarkPlugins
